@@ -1,0 +1,27 @@
+{
+  "name": "dsh-codex-fast",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Session-local GPT Fast controls for DeepSeek Harness without replacing its model adapters.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {".": "./src/index.js", "./client": "./client.js", "./package.json": "./package.json"},
+  "files": ["src", "client.js", "cordis.patch.yml", "README.md", "docs"],
+  "engines": {"node": ">=22.19.0", "dsh": ">=0.2.1-rc.3 <0.3.0"},
+  "scripts": {"test": "node --test"},
+  "dsh": {
+    "bundle": {"patch": "./cordis.patch.yml"},
+    "client": {"platform": "web", "inject": ["@deepseek-ai/dsh-client-connection", "@deepseek-ai/dsh-client-ui-conversation"]}
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*",
+    "@deepseek-ai/dsh-storage-domain": ">=0.2.0 <0.3.0",
+    "zod": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {"optional": true},
+    "@deepseek-ai/dsh-storage-domain": {"optional": true},
+    "zod": {"optional": true}
+  },
+  "license": "MIT"
+}

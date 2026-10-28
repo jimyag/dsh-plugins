@@ -1,0 +1,4 @@
+# 独立启用 Fast；现有 llm-pi-ai 与 Magpie 管理的配置保持原样。
+- insert:
+    - id: codex-fast
+      name: dsh-codex-fast
