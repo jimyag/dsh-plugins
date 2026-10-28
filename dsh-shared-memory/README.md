@@ -31,15 +31,14 @@ This is intentional. Codex SQLite schemas and Claude memory behavior are client-
 
 ## Install
 
-From any directory:
-
 ```sh
 "/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" \
   plugin --profile desktop add \
-  "link:/Users/jimyag/src/github.com/jimyag/dsh-plugins/dsh-shared-memory"
+  "github:jimyag/dsh-plugins#path:/dsh-shared-memory"
 ```
 
-`dsh plugin` installs the package and appends its bundle patch to the profile.
+Restart DeepSeek Harness after installation. The plugin expects the
+`shared-memory` skill and its Python script to be installed locally.
 
 ## Configuration
 

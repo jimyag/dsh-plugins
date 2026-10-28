@@ -12,7 +12,8 @@
   "files": [
     "src",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "NOTICE"
   ],
   "engines": {
     "node": ">=22.19.0",
@@ -26,6 +27,11 @@
       "patch": "./cordis.patch.yml"
     }
   },
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimyag/dsh-plugins.git",
+    "directory": "dsh-codex-memory"
+  },
+  "license": "Apache-2.0"
 }
 

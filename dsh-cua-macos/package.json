@@ -4,9 +4,14 @@
   "private": true,
   "description": "macOS Computer Use provider for DeepSeek Harness.",
   "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
   "files": [
+    "src",
     "cordis.patch.yml",
-    "native/dsh-cua-native",
     "README.md"
   ],
   "engines": {
@@ -21,6 +26,11 @@
   "dependencies": {
     "@deepseek-ai/dsh-computer-use": "0.2.1-rc.3",
     "@deepseek-ai/dsh-experimental-cua-macos": "0.2.1-rc.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimyag/dsh-plugins.git",
+    "directory": "dsh-cua-macos"
   },
   "license": "MIT"
 }

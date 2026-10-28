@@ -21,8 +21,10 @@ JavaScript variables do not. The tool rejects shell interpolation by invoking
 ```sh
 "/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" \
   plugin --profile desktop add \
-  "link:/Users/jimyag/src/github.com/jimyag/dsh-plugins/dsh-ego-lite"
+  "github:jimyag/dsh-plugins#path:/dsh-ego-lite"
 ```
+
+Restart DeepSeek Harness after installation.
 
 The default binary is `~/.local/bin/ego-browser`. Override it with `binary` in
 `cordis.patch.yml` or the `EGO_BROWSER_BIN` environment variable.

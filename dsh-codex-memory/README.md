@@ -78,8 +78,10 @@ those files are absent from Codex's SQLite index.
 ```sh
 "/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" \
   plugin --profile desktop add \
-  "link:/Users/jimyag/src/github.com/jimyag/dsh-plugins/dsh-codex-memory"
+  "github:jimyag/dsh-plugins#path:/dsh-codex-memory"
 ```
+
+Restart DeepSeek Harness after installation.
 
 ## Configuration
 
@@ -130,3 +132,9 @@ infers V1 only when the final directory is named `memories`.
 ```sh
 node --test
 ```
+
+## License
+
+This package includes memory prompt templates derived from
+[OpenAI Codex](https://github.com/openai/codex) and is distributed under
+Apache-2.0. See `LICENSE` and `NOTICE`.
