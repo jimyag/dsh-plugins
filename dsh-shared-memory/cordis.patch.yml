@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-shared-memory
+      name: dsh-shared-memory
+

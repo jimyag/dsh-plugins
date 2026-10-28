@@ -1,0 +1,26 @@
+{
+  "name": "dsh-cua-macos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "macOS Computer Use provider for DeepSeek Harness.",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "native/dsh-cua-native",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": ">=0.2.1-rc.3 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-computer-use": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-experimental-cua-macos": "0.2.1-rc.3"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+- insert:
+    - id: computer-use
+      name: "@deepseek-ai/dsh-computer-use"
+    - id: experimental-cua-macos
+      name: "@deepseek-ai/dsh-experimental-cua-macos"
+      config:
+        helperPath: /Users/jimyag/src/github.com/jimyag/dsh-plugins/dsh-cua-macos/native/dsh-cua-native

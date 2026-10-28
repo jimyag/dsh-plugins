@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-shared-memory-runtime-test
+      name: ../src/index.js
+
