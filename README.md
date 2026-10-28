@@ -6,7 +6,7 @@ DeepSeek Harness plugins maintained in this repository.
 
 | Plugin | Active tools |
 | --- | --- |
-| `dsh-codex-fast` | Session-local Fast button and `/fast` command for GPT models |
+| `dsh-codex-fast` | Unified model, reasoning effort and Fast control for GPT models |
 | `dsh-codex-memory` | `codex_memory_search`, `codex_memory_list`, `codex_memory_read`, `codex_memory_note` |
 | `dsh-cua-macos` | `cua` |
 | `dsh-ego-lite` | `ego_browser` |

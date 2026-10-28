@@ -2,16 +2,16 @@
   "name": "dsh-codex-fast",
   "version": "0.1.0",
   "private": true,
-  "description": "Session-local GPT Fast controls for DeepSeek Harness without replacing its model adapters.",
+  "description": "Unified model, reasoning effort and session-local GPT Fast controls for DeepSeek Harness.",
   "type": "module",
   "main": "src/index.js",
-  "exports": {".": "./src/index.js", "./client": "./client.js", "./package.json": "./package.json"},
-  "files": ["src", "client.js", "cordis.patch.yml", "README.md", "docs"],
+  "exports": {".": "./src/index.js", "./client": "./client.js", "./package.json": "./package.json", "./locale/*.json": "./locale/*.json"},
+  "files": ["src", "client.js", "cordis.patch.yml", "README.md", "docs", "locale"],
   "engines": {"node": ">=22.19.0", "dsh": ">=0.2.1-rc.3 <0.3.0"},
   "scripts": {"test": "node --test"},
   "dsh": {
     "bundle": {"patch": "./cordis.patch.yml"},
-    "client": {"platform": "web", "inject": ["@deepseek-ai/dsh-client-connection", "@deepseek-ai/dsh-client-ui-conversation"]}
+    "client": {"platform": "web", "inject": ["@deepseek-ai/dsh-client-connection", "@deepseek-ai/dsh-client-ui-conversation", "@deepseek-ai/dsh-client-ui-model-selection"]}
   },
   "peerDependencies": {
     "@deepseek-ai/schemastery": "*",
