@@ -6,13 +6,13 @@ window.__ModuleLoader__.load({
     const { createPortal } = require('react-dom')
     const { MenuSurface, useAnchoredPosition, useDismissOnOutsidePointer, IconRefreshOutlineRegular, IconSlidersTwoOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives')
     const styles = `
-      .mc-root, .mc-panel { --mc-effort: #6b7280; --mc-fill: var(--mc-effort); --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
-      .mc-root[data-level="0"], .mc-panel[data-level="0"] { --mc-effort: #6b7280; }
-      .mc-root[data-level="1"], .mc-panel[data-level="1"] { --mc-effort: #2563eb; }
-      .mc-root[data-level="2"], .mc-panel[data-level="2"] { --mc-effort: #7c3aed; }
-      .mc-root[data-level="3"], .mc-panel[data-level="3"] { --mc-effort: #16a34a; }
-      .mc-root[data-level="4"], .mc-panel[data-level="4"] { --mc-effort: #ea580c; }
-      .mc-root[data-level="5"], .mc-panel[data-level="5"] { --mc-effort: #dc2626; }
+      .mc-root, .mc-panel { --mc-effort: #8b93a7; --mc-fill: var(--mc-effort); --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
+      .mc-root[data-level="0"], .mc-panel[data-level="0"] { --mc-effort: #8b93a7; }
+      .mc-root[data-level="1"], .mc-panel[data-level="1"] { --mc-effort: #93c5fd; }
+      .mc-root[data-level="2"], .mc-panel[data-level="2"] { --mc-effort: #60a5fa; }
+      .mc-root[data-level="3"], .mc-panel[data-level="3"] { --mc-effort: #3b82f6; }
+      .mc-root[data-level="4"], .mc-panel[data-level="4"] { --mc-effort: #4f46e5; }
+      .mc-root[data-level="5"], .mc-panel[data-level="5"] { --mc-effort: #7c3aed; }
       .mc-root[data-fast="true"][data-level="0"], .mc-panel[data-fast="true"][data-level="0"] { --mc-fill: #c9b48c; }
       .mc-root[data-fast="true"][data-level="1"], .mc-panel[data-fast="true"][data-level="1"] { --mc-fill: #dfc07a; }
       .mc-root[data-fast="true"][data-level="2"], .mc-panel[data-fast="true"][data-level="2"] { --mc-fill: #d8a94f; }
