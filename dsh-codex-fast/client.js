@@ -281,6 +281,6 @@ window.__ModuleLoader__.load({
         },
       }, ModelControls))
     }
-    return { name: 'model-controls', inject: ['slots', 'sessions', 'connection', 'modelDirectories'], apply }
+    return { name: 'model-controls', inject: ['slots', 'sessions', 'remote', 'remote.session', 'modelDirectories'], apply }
   },
 })
