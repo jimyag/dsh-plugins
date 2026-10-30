@@ -6,13 +6,25 @@ window.__ModuleLoader__.load({
     const { createPortal } = require('react-dom')
     const { MenuSurface, useAnchoredPosition, useDismissOnOutsidePointer, IconRefreshOutlineRegular, IconSlidersTwoOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives')
     const styles = `
-      .mc-root, .mc-panel { --mc-fill: #cc8269; --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
-      .mc-root[data-fast="true"], .mc-panel[data-fast="true"] { --mc-fill: #d4a044; }
+      .mc-root, .mc-panel { --mc-effort: #8b8f96; --mc-fill: var(--mc-effort); --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
+      .mc-root[data-level="0"], .mc-panel[data-level="0"] { --mc-effort: #8b8f96; }
+      .mc-root[data-level="1"], .mc-panel[data-level="1"] { --mc-effort: #7d93b3; }
+      .mc-root[data-level="2"], .mc-panel[data-level="2"] { --mc-effort: #5f9a8c; }
+      .mc-root[data-level="3"], .mc-panel[data-level="3"] { --mc-effort: #8a9b5e; }
+      .mc-root[data-level="4"], .mc-panel[data-level="4"] { --mc-effort: #bf9055; }
+      .mc-root[data-level="5"], .mc-panel[data-level="5"] { --mc-effort: #b4634c; }
+      .mc-root[data-fast="true"][data-level="0"], .mc-panel[data-fast="true"][data-level="0"] { --mc-fill: #b7a88f; }
+      .mc-root[data-fast="true"][data-level="1"], .mc-panel[data-fast="true"][data-level="1"] { --mc-fill: #d3b06a; }
+      .mc-root[data-fast="true"][data-level="2"], .mc-panel[data-fast="true"][data-level="2"] { --mc-fill: #d8a94f; }
+      .mc-root[data-fast="true"][data-level="3"], .mc-panel[data-fast="true"][data-level="3"] { --mc-fill: #cf9c38; }
+      .mc-root[data-fast="true"][data-level="4"], .mc-panel[data-fast="true"][data-level="4"] { --mc-fill: #c58d26; }
+      .mc-root[data-fast="true"][data-level="5"], .mc-panel[data-fast="true"][data-level="5"] { --mc-fill: #b87e1c; }
       .mc-trigger, .mc-panel button { appearance: none; font: inherit; cursor: pointer; color: inherit; border: 0; background: transparent; }
       .mc-trigger { display: flex; align-items: center; gap: 7px; min-height: 28px; max-width: 310px; padding: 3px 9px; border-radius: 999px; font-size: 12px; color: var(--dsw-alias-label-secondary, #61666b); }
       .mc-trigger[data-fast="true"] { background: color-mix(in srgb, var(--mc-fill) 14%, transparent); color: var(--mc-ink); }
       .mc-trigger-model { display: var(--dsh-composer-model-text-display, block); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
       .mc-trigger-effort { display: var(--dsh-composer-model-text-display, block); white-space: nowrap; }
+      .mc-trigger-dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: var(--mc-fill); }
       .mc-compact-icon { display: var(--dsh-composer-model-icon-display, none); }
       .mc-trigger svg, .mc-panel svg { flex: none; }
       .mc-trigger:disabled, .mc-panel button:disabled, .mc-slider:disabled { opacity: .45; cursor: default; }
@@ -142,6 +154,16 @@ window.__ModuleLoader__.load({
       const effortId = current?.reasoningEffort ?? model?.reasoning?.defaultEffort
       const selectedIndex = levels.findIndex(level => level.id === effortId)
       const index = preview ?? Math.max(0, selectedIndex)
+      const toneOf = level => {
+        const text = `${level?.id ?? ''} ${level?.name ?? ''}`.toLocaleLowerCase()
+        if (/max|highest|最高|最大/.test(text)) return 5
+        if (/xhigh|extra|极高/.test(text)) return 4
+        if (/high|高/.test(text)) return 3
+        if (/medium|mid|中/.test(text)) return 2
+        if (/low|min|低/.test(text)) return 1
+        return 0
+      }
+      const tone = levels.length > 1 ? toneOf(levels[index]) : 0
       const effortName = preview !== null ? levels[index]?.name : levels.find(level => level.id === effortId)?.name
       const fastEnabled = fast?.state?.visible && fast.state.supported && fast.state.enabled || false
       const busy = saving || directory.status === 'selecting' || fast?.busy
@@ -215,7 +237,7 @@ window.__ModuleLoader__.load({
       }
       const panel = open && h(MenuSurface, {
         ref: panelRef, id: panelId, compact: true, role: 'dialog', 'aria-label': '模型与推理设置', 'aria-busy': busy,
-        className: 'mc-panel', 'data-fast': fastEnabled,
+        className: 'mc-panel', 'data-fast': fastEnabled, 'data-level': tone,
         style: { position: 'fixed', zIndex: 1100, ...(position ?? { visibility: 'hidden', left: 0, top: 0 }) }, onKeyDown: onPanelKey,
       }, pane === 'controls' ? h(React.Fragment, null,
         h('div', { className: 'mc-header' },
@@ -259,7 +281,7 @@ window.__ModuleLoader__.load({
           ...directory.failures.map(failure => h('div', { key: failure.id, className: 'mc-error' }, `${failure.name}：${failure.message}`))),
       ), (error || fast?.error || directory.error) && h('div', { className: 'mc-error', role: 'alert' }, error || fast?.error || directory.error))
 
-      return h('span', { ref: rootRef, className: 'mc-root', 'data-fast': fastEnabled },
+      return h('span', { ref: rootRef, className: 'mc-root', 'data-fast': fastEnabled, 'data-level': tone },
         h('button', { ref: triggerRef, type: 'button', className: 'mc-trigger', 'data-fast': fastEnabled, disabled: locked || removed,
           'aria-label': `模型与推理设置，当前 ${model?.name ?? '未选择'}${effortName ? `，${effortName}` : ''}${fastEnabled ? '，Fast 已开启' : ''}`,
           'aria-expanded': open, 'aria-haspopup': 'dialog', 'aria-controls': open ? panelId : undefined,
@@ -267,7 +289,7 @@ window.__ModuleLoader__.load({
           onClick: () => { setPane('controls'); setOpen(value => !value) },
           onKeyDown: event => { if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); setOpen(true) } },
         }, fastEnabled && lightning(true), h('span', { className: 'mc-compact-icon' }, h(IconSlidersTwoOutlineRegular, { size: 15 })),
-        h('span', { className: 'mc-trigger-model' }, shortName(model)), effortName && h('span', { className: 'mc-trigger-effort' }, effortName), chevron('down')),
+        h('span', { className: 'mc-trigger-model' }, shortName(model)), effortName && h('span', { className: 'mc-trigger-dot', 'aria-hidden': true }), effortName && h('span', { className: 'mc-trigger-effort' }, effortName), chevron('down')),
         panel && createPortal(panel, document.body))
     }
 

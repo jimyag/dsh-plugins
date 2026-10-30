@@ -1,10 +1,12 @@
 # Model Controls for DeepSeek Harness
 
-用同一个紧凑浮层管理模型、推理等级和 Fast，替代宿主原来的模型选择器。Fast 只对 GPT 模型出现；开启后整块控件从陶土色切换为金色。
+用同一个紧凑浮层管理模型、推理等级和 Fast，替代宿主原来的模型选择器。Fast 只对 GPT 模型出现；开启后整块控件从彩色切换为金色。
 
 ![关闭 Fast 时的模型控制](docs/model-controls.png)
 
 ![开启 Fast 后的金色状态](docs/fast-control.png)
+
+每个推理等级有自己的颜色：Default 灰、Low 蓝、Medium 青、High 绿、Xhigh 琥珀、Max 陶土，等级标题、滑杆和输入框胶囊上的小圆点同步变色。Fast 开启后改用由浅到深的金色梯度，仍然能看出档位差别。
 
 浮层顶部是当前推理等级，左侧是 Fast，右侧是重置；中间一行切换模型；底部是按档位的推理强度滑杆。点击输入框里的胶囊重新打开，`Esc` 关闭并把焦点还给胶囊。
 
