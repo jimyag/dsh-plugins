@@ -8,7 +8,6 @@ DeepSeek Harness plugins maintained in this repository.
 | --- | --- |
 | `dsh-codex-fast` | Unified model, reasoning effort and Fast control for GPT models |
 | `dsh-codex-memory` | `codex_memory_search`, `codex_memory_list`, `codex_memory_read`, `codex_memory_note` |
-| `dsh-shared-memory` | `memory_search`, `memory_list`, `memory_save`, `memory_forget`, `memory_pending`, `memory_read_source` |
 
 ## Requirements
 
@@ -24,9 +23,6 @@ DSH="/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"
 
 "$DSH" plugin --profile desktop add \
   "github:jimyag/dsh-plugins#path:/dsh-codex-memory"
-
-"$DSH" plugin --profile desktop add \
-  "github:jimyag/dsh-plugins#path:/dsh-shared-memory"
 ```
 
 Restart DeepSeek Harness after installing a plugin. `dsh plugin` forwards to
