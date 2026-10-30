@@ -6,19 +6,19 @@ window.__ModuleLoader__.load({
     const { createPortal } = require('react-dom')
     const { MenuSurface, useAnchoredPosition, useDismissOnOutsidePointer, IconRefreshOutlineRegular, IconSlidersTwoOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives')
     const styles = `
-      .mc-root, .mc-panel { --mc-effort: #8b8f96; --mc-fill: var(--mc-effort); --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
-      .mc-root[data-level="0"], .mc-panel[data-level="0"] { --mc-effort: #8b8f96; }
-      .mc-root[data-level="1"], .mc-panel[data-level="1"] { --mc-effort: #7d93b3; }
-      .mc-root[data-level="2"], .mc-panel[data-level="2"] { --mc-effort: #5f9a8c; }
-      .mc-root[data-level="3"], .mc-panel[data-level="3"] { --mc-effort: #8a9b5e; }
-      .mc-root[data-level="4"], .mc-panel[data-level="4"] { --mc-effort: #bf9055; }
-      .mc-root[data-level="5"], .mc-panel[data-level="5"] { --mc-effort: #b4634c; }
-      .mc-root[data-fast="true"][data-level="0"], .mc-panel[data-fast="true"][data-level="0"] { --mc-fill: #b7a88f; }
-      .mc-root[data-fast="true"][data-level="1"], .mc-panel[data-fast="true"][data-level="1"] { --mc-fill: #d3b06a; }
+      .mc-root, .mc-panel { --mc-effort: #6b7280; --mc-fill: var(--mc-effort); --mc-ink: color-mix(in srgb, var(--mc-fill) 65%, var(--dsw-alias-label-primary, #0f1115)); }
+      .mc-root[data-level="0"], .mc-panel[data-level="0"] { --mc-effort: #6b7280; }
+      .mc-root[data-level="1"], .mc-panel[data-level="1"] { --mc-effort: #2563eb; }
+      .mc-root[data-level="2"], .mc-panel[data-level="2"] { --mc-effort: #7c3aed; }
+      .mc-root[data-level="3"], .mc-panel[data-level="3"] { --mc-effort: #16a34a; }
+      .mc-root[data-level="4"], .mc-panel[data-level="4"] { --mc-effort: #ea580c; }
+      .mc-root[data-level="5"], .mc-panel[data-level="5"] { --mc-effort: #dc2626; }
+      .mc-root[data-fast="true"][data-level="0"], .mc-panel[data-fast="true"][data-level="0"] { --mc-fill: #c9b48c; }
+      .mc-root[data-fast="true"][data-level="1"], .mc-panel[data-fast="true"][data-level="1"] { --mc-fill: #dfc07a; }
       .mc-root[data-fast="true"][data-level="2"], .mc-panel[data-fast="true"][data-level="2"] { --mc-fill: #d8a94f; }
-      .mc-root[data-fast="true"][data-level="3"], .mc-panel[data-fast="true"][data-level="3"] { --mc-fill: #cf9c38; }
-      .mc-root[data-fast="true"][data-level="4"], .mc-panel[data-fast="true"][data-level="4"] { --mc-fill: #c58d26; }
-      .mc-root[data-fast="true"][data-level="5"], .mc-panel[data-fast="true"][data-level="5"] { --mc-fill: #b87e1c; }
+      .mc-root[data-fast="true"][data-level="3"], .mc-panel[data-fast="true"][data-level="3"] { --mc-fill: #c9922f; }
+      .mc-root[data-fast="true"][data-level="4"], .mc-panel[data-fast="true"][data-level="4"] { --mc-fill: #b87a1a; }
+      .mc-root[data-fast="true"][data-level="5"], .mc-panel[data-fast="true"][data-level="5"] { --mc-fill: #a0620c; }
       .mc-trigger, .mc-panel button { appearance: none; font: inherit; cursor: pointer; color: inherit; border: 0; background: transparent; }
       .mc-trigger { display: flex; align-items: center; gap: 7px; min-height: 28px; max-width: 310px; padding: 3px 9px; border-radius: 999px; font-size: 12px; color: var(--dsw-alias-label-secondary, #61666b); }
       .mc-trigger[data-fast="true"] { background: color-mix(in srgb, var(--mc-fill) 14%, transparent); color: var(--mc-ink); }
